@@ -1,0 +1,20 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #96ED89, #45BF55, #168039, #044D29, #00261C), url(./images/loneliness_14-wallpaper-1920x1080.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    font-family: 'Lato', sans-serif;
+}

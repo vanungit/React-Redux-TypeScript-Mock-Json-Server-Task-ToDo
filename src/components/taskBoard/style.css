@@ -1,0 +1,93 @@
+.list-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 65%;
+  background-color: rgba(245, 222, 179, 0.3);
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.error{
+  color:red;
+}
+.editInput{
+  position: absolute;
+  top:62px;
+}
+.editInput input{
+  padding:5px;
+}
+.disabled{
+  color:silver;
+}
+.complicated{
+  color:green;
+}
+
+.list-container ul {
+  list-style: none;
+  height: 100%;
+
+}
+.list-wrapper{
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.list-container ul li {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.897);
+  border-radius: 5px;
+  padding: 10px 55px 10px 10px;
+  height: 120px;
+  margin:5px 0;
+
+}
+
+.list-container ul li:not(:last-child) {
+  margin: 0 0 5px 0;
+}
+
+.list-container ul li button:focus {
+  outline: none;
+}
+.trash{
+  position: relative;
+  left: 397px;
+  top: -16px;
+}
+.trashIcon{
+  border:none;
+}
+.checkbox{
+  width: 28px;
+  height: 28px;
+  border-color:#0075FF;
+}
+.checkboxField{
+  position: relative;
+  left: 293px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+}
+.editButton{
+  position: absolute;
+  left: 342px;
+  top: 14px;
+  border:none;
+}
+
+.checkboxField label{
+  padding: 0 10px;
+
+}
+.task{
+  position: relative;
+
+}
+
