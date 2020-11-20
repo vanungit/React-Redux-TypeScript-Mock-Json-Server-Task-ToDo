@@ -27,7 +27,7 @@ const TaskBoard: FC<any> = ({data}) => {
     );
     const onBlurInput = useCallback((id) => {
             SetEdit(false)
-            if (editState.length == 0) return
+            if (editState.length === 0) return
             dispatch(editTTask(editState, id))
         }, [dispatch, editState]
     );

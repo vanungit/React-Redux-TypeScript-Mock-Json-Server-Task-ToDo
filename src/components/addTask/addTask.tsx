@@ -16,11 +16,12 @@ const TaskInput: FC = () => {
             task: event.target.value,
         });
     }, []);
-    const addTaskKayPress = useCallback((e) => {
-        if (e.keyCode == 13) {
+    const addTaskKayPress = (e:any) => {
+        if (e.keyCode === 13) {
             InputDataSet()
         }
-    }, [inputData, dispatch])
+    }
+
     const InputDataSet = () => {
         if (inputData.task.length === 0) {
             setError(true)
