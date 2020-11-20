@@ -12,7 +12,7 @@ export const TaskBoardContainer: FC = () => {
         <div className="list-wrapper">
             {
 
-                tasks.map((n: Task) => <TaskBoard key={n.id} data={n}/>)
+                tasks.map((n: Task) => <TaskBoard key={n.id} data={n} id={n.id}/>)
             }
         </div>
     );

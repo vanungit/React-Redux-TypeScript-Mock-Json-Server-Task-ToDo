@@ -8,7 +8,6 @@ import { editTTask, DeleteTask, setCheckboxFinish} from '../../redux/tasks/taskR
 
 
 const TaskBoard: FC<any> = ({data,id}) => {
-    debugger
     const dispatch = useDispatch();
 
     const [edit, SetEdit] = useState(false);
@@ -27,6 +26,7 @@ const TaskBoard: FC<any> = ({data,id}) => {
         [dispatch]
     );
     const onBlurInput = useCallback((id) => {
+        debugger
             SetEdit(false)
             if (editState.length === 0) return
             dispatch(editTTask(editState, id))
@@ -43,7 +43,7 @@ const TaskBoard: FC<any> = ({data,id}) => {
                     {edit ? <div className="editInput">
                         <input type="text" autoFocus={true}
                                onChange={(e) => SetEditState(e.target.value)} placeholder={editState}
-                               onBlur={() => onBlurInput(data.id)}/>
+                               onBlur={() => onBlurInput(id)}/>
                     </div> : null}
 
                     <button className='trash' onClick={async () => {
