@@ -1,4 +1,4 @@
-import React, {FC, useState, useCallback} from "react";
+import React, {FC, useState, useCallback,memo} from "react";
 import {useDispatch} from "react-redux";
 import {Task} from "../../redux/tasks/taskTypes";
 import "./style.css";
@@ -15,14 +15,14 @@ const TaskInput: FC = () => {
             id: (Math.random() * 100).toFixed(),
             task: event.target.value,
         });
-    }, []);
+    }, [setInputData]);
     const addTaskKayPress = (e:any) => {
         if (e.keyCode === 13) {
             InputDataSet()
         }
     }
 
-    const InputDataSet = () => {
+    const InputDataSet = useCallback(() => {
         if (inputData.task.length === 0) {
             setError(true)
         } else {
@@ -30,7 +30,7 @@ const TaskInput: FC = () => {
             dispatch(addTaskDispatch(inputData));
             setInputData({id: "", task: ""});
         }
-    }
+    },[inputData])
 
     return (
         <div className="input-wrapper">
@@ -48,4 +48,4 @@ const TaskInput: FC = () => {
     );
 };
 
-export default TaskInput;
+export default memo(TaskInput);

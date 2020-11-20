@@ -10,7 +10,7 @@ export const Put = (editValue: string, id: string) => {
         console.log(error);
     });
 };
-export const setCheckboxFinishing = (isChecked: any, id: any) => {
+export const setCheckboxFinishing = (isChecked: boolean, id: string) => {
     return axios.patch(API_URL + `/${id}`, {checked: isChecked}).then(response => {
         return response.data
     }).catch(error => {

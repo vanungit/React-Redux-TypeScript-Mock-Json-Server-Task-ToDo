@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from "react";
+import React, {FC, useCallback, useState,memo} from "react";
 import {useDispatch} from "react-redux";
 import "./style.css";
 import {Confirm} from 'react-st-modal';
@@ -23,13 +23,13 @@ const TaskBoard: FC<any> = ({data,id}) => {
         (e, id) => {
             dispatch(setCheckboxFinish(e.target.checked, id));
         },
-        [dispatch]
+        [dispatch,id]
     );
-    const onBlurInput = (id:any) => {
+    const onBlurInput = useCallback((id:any) => {
             SetEdit(false)
             if (editState.length === 0) return
             dispatch(editTTask(editState, id))
-        }
+        },[dispatch,editState])
 
     const complicated = `fa ${data.checked ? 'complicated' : 'disabled'}`;
     return (
@@ -71,4 +71,4 @@ const TaskBoard: FC<any> = ({data,id}) => {
     );
 }
 
-export default TaskBoard;
+export default memo(TaskBoard);
