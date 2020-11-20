@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:3000/List";
 
 export const Put = (editValue: any, id: any) => {
-    return axios.post(API_URL + `?id=${id}`, {data: {task: `${editValue}`}}).then(response => {
+    return axios.patch(API_URL + `/${id}`, {data: {task: `${editValue}`}}).then(response => {
         return response.data
     }).catch(error => {
         console.log(error);
@@ -25,7 +25,9 @@ export const Delete = (id: any) => {
     });
 };
 export const Create = (data: any) => {
+    debugger
     return axios.post(API_URL, {data}).then(response => {
+        debugger
         return response.data
     }).catch(error => {
         console.log(error);

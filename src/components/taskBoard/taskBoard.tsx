@@ -7,7 +7,8 @@ import {faTrash, faEdit} from '@fortawesome/free-solid-svg-icons'
 import { editTTask, DeleteTask, setCheckboxFinish} from '../../redux/tasks/taskReducer'
 
 
-const TaskBoard: FC<any> = ({data}) => {
+const TaskBoard: FC<any> = ({data,id}) => {
+    debugger
     const dispatch = useDispatch();
 
     const [edit, SetEdit] = useState(false);

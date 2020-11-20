@@ -69,6 +69,7 @@ export const actions = {
 export const addTaskDispatch = (data: any): any => {
     return async (dispatch: any) => {
         let response = await Create(data);
+        debugger
         dispatch(actions.addTask(response))
     }
 }
