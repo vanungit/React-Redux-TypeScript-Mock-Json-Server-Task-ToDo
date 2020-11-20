@@ -19,7 +19,7 @@ export const setCheckboxFinishing = (isChecked: any, id: any) => {
 };
 export const Delete = (id: string) => {
     return axios.delete(API_URL + `/${id}`,).then(response => {
-        return response.data
+        return response.status
     }).catch(error => {
         console.log(error);
     });

@@ -40,19 +40,9 @@ export const taskReducer = (state = initialState, action: ExtionType): TaskState
             };
 
         case DELETE_TASK:
-            if (payload) {
-                const {id} = payload;
-                state.tasks.splice(id, 1);
-                return {
-                    ...state,
-                    tasks: [...state.tasks]
-                };
-            } else {
-                const id = payload;
-                state.tasks.splice(id, 1);
-                return {
-                    ...state, tasks: state.tasks
-                };
+            return {
+                ...state,
+                tasks: state.tasks.filter((n => n['id'] != payload))
             }
 
         default:
@@ -69,7 +59,6 @@ export const actions = {
 export const addTaskDispatch = (data: any): any => {
     return async (dispatch: any) => {
         let response = await Create(data);
-        debugger
         dispatch(actions.addTask(response))
     }
 }
@@ -88,7 +77,9 @@ export const editTTask = (editValue: string, id: string): any => {
 export const DeleteTask = (id: string): any => {
     return async (dispatch: any) => {
         let response = await Delete(id);
-        dispatch(actions.deleteTask(response))
+        if(response === 200) {
+            dispatch(actions.deleteTask(id))
+        }
     }
 }
 type ExtionType = InferActionsType<typeof actions>
