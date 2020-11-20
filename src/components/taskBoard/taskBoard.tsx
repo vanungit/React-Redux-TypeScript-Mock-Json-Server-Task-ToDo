@@ -17,7 +17,7 @@ const TaskBoard: FC<any> = ({data,id}) => {
         (id: string) => {
             dispatch(DeleteTask(id));
         },
-        [dispatch]
+        [dispatch,id]
     );
     const setCheckboxValue = useCallback(
         (e, id) => {
@@ -25,13 +25,12 @@ const TaskBoard: FC<any> = ({data,id}) => {
         },
         [dispatch]
     );
-    const onBlurInput = useCallback((id) => {
-        debugger
+    const onBlurInput = (id:any) => {
             SetEdit(false)
             if (editState.length === 0) return
             dispatch(editTTask(editState, id))
-        }, [dispatch, editState]
-    );
+        }
+
     const complicated = `fa ${data.checked ? 'complicated' : 'disabled'}`;
     return (
         <div className='list-container'>
@@ -49,7 +48,7 @@ const TaskBoard: FC<any> = ({data,id}) => {
                     <button className='trash' onClick={async () => {
                         const result = await Confirm('«Вы уверены»? ');
                         if (result) {
-                            removeArrayElementCallback(data.id)
+                            removeArrayElementCallback(id)
                         }
                     }
                     }>
