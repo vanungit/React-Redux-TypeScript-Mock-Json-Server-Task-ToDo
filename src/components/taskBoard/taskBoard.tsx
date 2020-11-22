@@ -17,15 +17,15 @@ const TaskBoard: FC<any> = ({data,id}) => {
         (id: string) => {
             dispatch(DeleteTask(id));
         },
-        [dispatch,id]
+        [dispatch]
     );
     const setCheckboxValue = useCallback(
-        (e, id) => {
-            dispatch(setCheckboxFinish(e.target.checked, id));
+        (value, id) => {
+            dispatch(setCheckboxFinish(value, id));
         },
-        [dispatch,id]
+        [dispatch]
     );
-    const onBlurInput = useCallback((id:any) => {
+    const onBlurInput = useCallback((id:string) => {
             SetEdit(false)
             if (editState.length === 0) return
             dispatch(editTTask(editState, id))
@@ -61,7 +61,7 @@ const TaskBoard: FC<any> = ({data,id}) => {
                     </button>
                     <div className="checkboxField">
                         <label htmlFor="checkbox" className={complicated}>Выполнено</label>
-                        <input type="checkbox" onChange={(e: any) => setCheckboxValue(e, data.id)} className='checkbox'
+                        <input type="checkbox" onChange={(e: any) => setCheckboxValue(e.target.checked, data.id)} className='checkbox'
                                id='checkbox'/>
                     </div>
                 </li>

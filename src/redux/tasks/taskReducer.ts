@@ -42,7 +42,7 @@ export const taskReducer = (state = initialState, action: ExtionType): TaskState
         case DELETE_TASK:
             return {
                 ...state,
-                tasks: state.tasks.filter((n => n['id'] != payload))
+                tasks: state.tasks.filter((n => n['id'] !== payload))
             }
 
         default:
