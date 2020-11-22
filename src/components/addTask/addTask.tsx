@@ -30,7 +30,7 @@ const TaskInput: FC = () => {
             dispatch(addTaskDispatch(inputData));
             setInputData({id: "", task: ""});
         }
-    },[inputData])
+    },[inputData,dispatch])
 
     return (
         <div className="input-wrapper">
